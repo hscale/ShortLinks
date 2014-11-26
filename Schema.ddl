@@ -1,0 +1,17 @@
+
+CREATE DATABASE ShortNames;
+USE ShortNames;
+
+CREATE TABLE SN_Lookup (
+    id INTEGER UNSIGNED NOT NULL auto_increment,
+    long_url VARCHAR(2048) NOT NULL,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    count INTEGER UNSIGNED NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (id)
+);
+
+CREATE USER 'SNmaster';
+GRANT ALL PRIVILEGES ON ShortNames.* TO 'SNmaster';
+FLUSH PRIVILEGES;
+
