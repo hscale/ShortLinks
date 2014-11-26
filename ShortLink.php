@@ -21,11 +21,22 @@ class ShortLink {
 		// Create the database record and retrieve the id
 		$id = $dbconn->initialInsert($longURL);
 		
-		return base_convert($id, 10, 36);
+		return ShortLink::encodeShortName($id);
+	}
+	
+	// Given the ID, create the short name
+	public static function encodeShortName($id) {
+		$ret = base_convert($id, 10, 36);
+		if (strlen($ret) < 5) {
+			$ret = str_pad($ret, 5, '0', STR_PAD_LEFT);
+		}
+		
+		return $ret;
 	}
 	
 	// Receives a Base36 string and returns its Base10 representation
 	public static function decodeShortName($short) {
+		
 		return base_convert($short, 36, 10);
 	}
 	
@@ -46,6 +57,7 @@ class ShortLink {
 		return $sn;		
 	}
 	
+	// Retrieve the long URL from the database
 	public static function getForwardLink($id) {
 		// Create a database connectivity object
 		$dbconn = new DBConn();
