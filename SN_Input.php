@@ -3,12 +3,11 @@
 <HEAD>
 <STYLE>
 	.err {color: #FF0000;}
+	h1 { text-align: center; }
 </STYLE>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
- 
+
 </HEAD>
 <BODY>
  
@@ -51,16 +50,22 @@
 
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	
-	<div class="row">
-        <div class="col-md-1"><p class="text-right">Long URL:</p></div>
-        <div class="col-md-4"><input type="text" name="longURL" size="35" value="<?php echo htmlspecialchars($longURL);?>"></div>
-        <div class="col-md-2"><span class="err"><?php echo $longURL_error;?></span></div>
-    </div>
-	<div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-4"><input type="submit" value="Submit"></div>
-        <div class="col-md-2"></div>
-    </div>
+	
+	<table class="table">
+ 	   	<tbody>
+    	   	<tr>
+        	   	<td><p class="text-right"><span class="label label-primary">Long URL:</span></p></td>
+               	<td><input type="text" name="longURL" size="35" value="<?php echo htmlspecialchars($longURL);?>"></td>
+               	<td><span class="err"><?php echo $longURL_error;?></span></td>
+           	</tr>
+           	<tr>
+           		<td></td>
+           		<td><input type="submit" value="Submit"></td>
+           		<td></td>
+           	</tr>
+		</tbody>
+	</table>
+ 	
     
 </form>
 

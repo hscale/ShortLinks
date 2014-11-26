@@ -2,6 +2,15 @@
 
 require_once('DBConn.php');
 
+/**
+ * Short link and URL functionality
+ * 
+ * 'Static' class to encapsulate the encoding/decoding of Short Links as well as other 
+ * related functionality.
+ * 
+ * @author sburg
+ *
+ */
 class ShortLink {
 
 	// Receives a Base10 integer and returns its Base36 representation
@@ -29,7 +38,7 @@ class ShortLink {
 		$sn->set_shortName($short);
 		
 		// Get the ID from the short name
-		$id = ShortName::decodeShortName($short);
+		$id = ShortLink::decodeShortName($short);
 		
 		// Retrieve the rest of the info from the database
 		$dbconn->select($id, $sn);

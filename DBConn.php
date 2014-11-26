@@ -1,7 +1,14 @@
 <?php
 
 
-
+/**
+ * Database interface class
+ * 
+ * Class to encapsulate all of the database-related funcctionality. 
+ * 
+ * @author Steven Burg
+ *
+ */
 class DBConn {
 	
 	// MySQL hostname
@@ -95,19 +102,9 @@ class DBConn {
 			$this->selectStatement->free_result();
 			return false;
 		}
-		
-//		if (!($res = $this->selectStatement->get_result())) {
-//			echo "Getting results failed: (" . $this->selectStatement->errno . ") " . $this->selectStatement->error;
-//			$this->selectStatement->free_result();
-//			return false;
-//		}
-		
-//		$row = $res->fetch_array(MYSQLI_NUM);
 
 		$this->selectStatement->bind_result($long, $created, $count);
 		$this->selectStatement->fetch();
-		
-		
 		
 		$obj->set_longURL($long);
 		$obj->set_created($created);

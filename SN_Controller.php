@@ -2,7 +2,16 @@
 
 require_once('ShortLink.php');
 
-// Class used to pass ShortName inforation
+
+
+/**
+ * Short Link information passing class
+ * 
+ * Class used to pass Short Link details between functions, script and classes.  
+ * 
+ * @author sburg
+ *
+ */
 class SN_Info {
 	private $longURL;
 	private $shortName;
@@ -20,6 +29,7 @@ class SN_Info {
 	public function set_count($in) { $this->count = $in; }
 	public function set_created($in) { $this->created = $in; }
 }
+
 
 // Insert a new record and return the short code - or simply return the short code if the record already exists
 function process_insert($longURL) {
