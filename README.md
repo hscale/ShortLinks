@@ -1,2 +1,2 @@
-A small web app to create short lilnks (similar to bit.ly).
+A small web app to create short links (similar to bit.ly).
 
